@@ -1,0 +1,20 @@
+name: Update Stars File
+
+on:
+  schedule:
+    - cron: '0 1 * * 1' # Runs at 01:00 UTC on Mondays, which is 09:00 Beijing time
+  workflow_dispatch: # Allows for manual triggering
+
+jobs:
+  update-stars:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Download README.md
+      run: curl -o temp.md https://raw.githubusercontent.com/longxiao7/some-stars/main/README.md
+
+    - name: Add header to the file
+      run: |
