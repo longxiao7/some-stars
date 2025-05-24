@@ -3,7 +3,7 @@ addEventListener('fetch', event => {
 });
 
 async function handleRequest(request) {
-  const response = await fetch('https://cdn.jsdelivr.net/gh/YangguangZhou/some-stars@main/data.json');   //这里的xxx修改为自己仓库的json raw文件
+  const response = await fetch('https://raw.githubusercontent.com/longxiao7/some-stars/refs/heads/main/data.json');   //这里的xxx修改为自己仓库的json raw文件
   const data = await response.json();
 
   const html = generateHTML(data);
@@ -61,7 +61,7 @@ function generateHTML(data) {
       <meta charset="UTF-8">
       <link rel="icon" href="https://jerryz.com.cn/favicon.png">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Jerry Zhou GitHub Stars 导航</title>
+      <title>MY GitHub Stars 导航</title>
       <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
       
       <style>
@@ -153,7 +153,7 @@ function generateHTML(data) {
     <body class="bg-gray-100">
       <div class="sticky-header flex justify-between items-center px-4 py-2 bg-white shadow-md">
         <h1 class="text-2xl font-bold">
-          <a href="https://jerryz.com.cn" class="hidden md:block">Jerry Zhou GitHub Stars 导航</a>
+          <a href="https://jerryz.com.cn" class="hidden md:block">MY GitHub Stars 导航</a>
         </h1>
         <input id="search" type="text" placeholder="Search repositories..." class="p-2 border rounded md:w-1/3 w-full mx-auto">
       </div>
